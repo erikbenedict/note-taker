@@ -6,17 +6,38 @@ let db = require("../db/db.json");
 
 // * base URL at the begging of this file is http://localhost3001/api
 
-app.get("/notes", (req, res) => res.json(db));
+app.get("/notes", (req, res) => {
+  try {
+    res.json(db);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while retrieving the notes" });
+  }
+});
 
 app.post("/notes", (req, res) => {
-  let newNote = {
-    title: req.body.title,
-    text: req.body.text,
-    id: newId,
-  };
-  db.push(newNote);
-  writeFile("./db/db.json", JSON.stringify(db));
-  res.json(db);
+  try {
+    let newNote = {
+      title: req.body.title,
+      text: req.body.text,
+      id: newId,
+    };
+    db.push(newNote);
+    writeFile("./db/db.json", JSON.stringify(db))
+      .then(() => {
+        res.json(db);
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .json({ error: "An error occurred while saving the note" });
+      });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while creating the note" });
+  }
 });
 
 app.delete("/notes/:id", (req, res) => {
