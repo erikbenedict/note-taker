@@ -19,6 +19,31 @@ app.post("/notes", (req, res) => {
   res.json(db);
 });
 
-// TODO: Add app.delete code
+app.delete("/notes/:id", (req, res) => {
+  const id = req.params.id;
+  let noteIndex = -1;
+
+  for (let i = 0; i < db.length; i++) {
+    if (db[i].id === id) {
+      noteIndex = i;
+      break;
+    }
+  }
+
+  if (noteIndex !== -1) {
+    db.splice(noteIndex, 1);
+    writeFile("./db/db.json", JSON.stringify(db))
+      .then(() => {
+        res.json(db);
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .json({ error: "An error occurred while deleting the note" });
+      });
+  } else {
+    res.status(404).json({ error: "Note not found" });
+  }
+});
 
 module.exports = app;
