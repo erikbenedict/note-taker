@@ -1,7 +1,6 @@
 const app = require("express").Router();
 const { writeFile } = require("fs").promises;
 const { v4: uuidv4 } = require("uuid");
-const newId = uuidv4();
 let db = require("../db/db.json");
 
 // * base URL at the begging of this file is http://localhost3001/api
@@ -18,6 +17,7 @@ app.get("/notes", (req, res) => {
 
 app.post("/notes", (req, res) => {
   try {
+    const newId = uuidv4();
     let newNote = {
       title: req.body.title,
       text: req.body.text,
@@ -42,17 +42,15 @@ app.post("/notes", (req, res) => {
 
 app.delete("/notes/:id", (req, res) => {
   const id = req.params.id;
-  let noteIndex = -1;
 
-  for (let i = 0; i < db.length; i++) {
-    if (db[i].id === id) {
-      noteIndex = i;
-      break;
-    }
-  }
+  // Find the index of the note with the given id
+  const noteIndex = db.findIndex((note) => note.id === id);
 
   if (noteIndex !== -1) {
+    // Remove the note from the array
     db.splice(noteIndex, 1);
+
+    // Write the updated notes to the db.json file
     writeFile("./db/db.json", JSON.stringify(db))
       .then(() => {
         res.json(db);
