@@ -3,8 +3,9 @@ const { writeFile } = require("fs").promises;
 const { v4: uuidv4 } = require("uuid");
 let db = require("../db/db.json");
 
-// * base URL at the begging of this file is http://localhost3001/api
+// **** base URL at the begging of this file is http://localhost3001/api ****
 
+// * GET route to retrieve all notes
 app.get("/notes", (req, res) => {
   try {
     res.json(db);
@@ -15,9 +16,10 @@ app.get("/notes", (req, res) => {
   }
 });
 
+// * POST route to create a new note
 app.post("/notes", (req, res) => {
   try {
-    const newId = uuidv4();
+    const newId = uuidv4(); //* Generate a unique ID for each new note
     let newNote = {
       title: req.body.title,
       text: req.body.text,
@@ -40,17 +42,13 @@ app.post("/notes", (req, res) => {
   }
 });
 
+// * DELETE route to delete a note by ID
 app.delete("/notes/:id", (req, res) => {
   const id = req.params.id;
-
-  // Find the index of the note with the given id
-  const noteIndex = db.findIndex((note) => note.id === id);
+  const noteIndex = db.findIndex((note) => note.id === id); // * Find the index of the note with the given id
 
   if (noteIndex !== -1) {
-    // Remove the note from the array
-    db.splice(noteIndex, 1);
-
-    // Write the updated notes to the db.json file
+    db.splice(noteIndex, 1); // * Remove the note from the array
     writeFile("./db/db.json", JSON.stringify(db))
       .then(() => {
         res.json(db);
