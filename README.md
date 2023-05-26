@@ -28,9 +28,11 @@ To get a local copy up and running follow these simple example steps.
 
 ## Usage
 
-Below is a demo of how this Note Taker works. It's a simple process that will keep you organized and on track!
+Below is a demo of how this Note Taker application works. It's a simple process that will keep you organized and on track!
 
-<!-- TODO: >>>>>>>> make demo video and upload it >>>>>>>>>> -->
+## Deployed Application
+
+[Click here to go to the Note Taker application!](https://)
 
 ## Contributing
 
