@@ -3,7 +3,7 @@ const { writeFile } = require('fs').promises;
 const { v4: uuidv4 } = require('uuid');
 let db = require('../db/db.json');
 
-// **** base URL at the begging of this file is http://localhost3001/api ****
+// **** base URL at the begging of this file is 'http://localhost3001/api'(local) ****
 
 // * GET route to retrieve all notes
 app.get('/notes', (req, res) => {
