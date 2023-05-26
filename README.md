@@ -34,7 +34,7 @@ https://github.com/erikbenedict/note-taker/assets/89614823/4b282350-356a-4a69-87
 
 ## Deployed Application
 
-[Click here to go to the Note Taker application!](#)
+[Click here to go to the Note Taker application!](https://eb-note-taker.herokuapp.com/)
 
 ## Contributing
 
