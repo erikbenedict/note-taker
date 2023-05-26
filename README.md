@@ -2,7 +2,7 @@
 
 ## Description
 
-In the business of life, we need applications that can help keep us on track. This Note Taker app allows you to be able to write and save notes, so that you can organize your thoughts and keep track of tasks you need to complete. Then once you've utilized a specific note for the purpose you saved it for, just delete the note and stay organized.
+In the busyness of life, we need applications that can help keep us on track. This Note Taker app allows you to be able to write and save notes, so that you can organize your thoughts and keep track of tasks you need to complete. Then once you've utilized a specific note for the purpose you saved it for, just delete the note and stay organized.
 
 ## Built With
 
@@ -30,9 +30,11 @@ To get a local copy up and running follow these simple example steps.
 
 Below is a demo of how this Note Taker application works. It's a simple process that will keep you organized and on track!
 
+https://github.com/erikbenedict/note-taker/assets/89614823/4b282350-356a-4a69-872f-8e17bf2ca477
+
 ## Deployed Application
 
-[Click here to go to the Note Taker application!](https://)
+[Click here to go to the Note Taker application!](#)
 
 ## Contributing
 
@@ -56,4 +58,4 @@ If you have any questions please reach out via email!
 
 - Email: erik.r.benedict@gmail.com
 - Twitter: [@\_Erik_Benedict](https://twitter.com/_Erik_Benedict)
-- Project Link: [https://github.com/erikbenedict/SVG-logo-maker](https://github.com/erikbenedict/note-taker)
+- Project Link: [https://github.com/erikbenedict/note-taker](https://github.com/erikbenedict/note-taker)
